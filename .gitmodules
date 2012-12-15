@@ -40,3 +40,9 @@
 [submodule "vim/bundle/vim-monokai-refined"]
 	path = vim/bundle/vim-monokai-refined
 	url = https://github.com/jaromero/vim-monokai-refined.git
+[submodule "vim/bundle/delmitmate"]
+	path = vim/bundle/delmitmate
+	url = git://github.com/Raimondi/delimitMate.git
+[submodule "vim/bundle/closetag"]
+	path = vim/bundle/closetag
+	url = git://github.com/docunext/closetag.vim.git
