@@ -77,3 +77,5 @@
 [instaweb]
   httpd = webrick
   browser = chrome
+[push]
+	default = simple
