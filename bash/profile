@@ -1,0 +1,94 @@
+# General settings
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+export SVN_EDITOR=vi
+export PATH=/usr/local/share/python:/usr/local/bin:$HOME/bin:$HOME/svnmerge:/usr/local/mysql/bin:$PATH:/usr/local/sbin:/opt/pose/implementation/bin:/Users/carstendreesbach/pear/bin
+
+# OPOWER Dev environment settings
+source ~/.secure
+export R_HOME=/Library/Frameworks/R.framework/Versions/2.12/Resources/
+export workspace=/opt/pose
+export workspace_client=/opt/pose/client
+export svnmerge_path=$workspace/svnmerge
+export SSH_TUNNEL_REMOTE_PORT=5542
+export DINO_MAIN=$workspace/dino
+export CLIENT_MAIN=$R/main/clients
+export CDPATH=.:~:/opt/pose:/opt/pose/clients:$CDPATH
+export CONFIG_DOMAIN=local
+# Setting for running report app
+export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
+export M2_HOME=/usr/local/Cellar/maven2/2.2.1/libexec
+
+# Load aliases
+source ~/.alias
+
+# Run opower.bash for OPOWER dev environment setup
+source $workspace/opower.bash/opower.bash
+
+# Run techops.bash for extra functions
+source $workspace/implementation/bin/techops.bash
+
+# Get the which_servers function
+source /opt/pose/infrastructure/bin/which_servers.sh
+
+# Set up template testing functions
+source ~/.template_tests.sh
+
+# Set up some other useful PSE functions
+source ~/bin/opower/useful_pse_functions.sh
+
+# Unified history files across sessions - see http://superuser.com/questions/37576/can-history-files-be-unified-in-bash
+# 2011-06-14 decided not to use this after all for now, too annoying to get mixed command history across sessions
+export HISTSIZE=1000000 HISTFILESIZE=1000000
+#export HISTCONTROL=ignoreboth # remove duplicate history entries
+#shopt -s histappend
+#PROMPT_COMMAND="$PROMPT_COMMAND;history -a; history -n"
+# New history config for supporting huffshell gem https://github.com/paulmars/huffshell
+shopt -s histappend
+#shopt extended_history
+# setopt hist_expire_dups_first
+# setopt hist_ignore_dups # ignore duplication command history list
+#shopt hist_ignore_space
+#shopt -s histverify
+#shopt inc_append_history
+# setopt share_history # share command history data
+shopt -s cdspell
+shopt -s nocaseglob
+
+# OpsQA settings (from https://wiki.opower.com/display/OQ/Ops+QA+Framework)
+export PATH=$PATH:$workspace/opsqa/bin
+export RUBYLIB=$RUBYLIB:$workspace/opsqa/lib:$workspace/clyde/lib
+export CLYDE_UNIT_PATH=$workspace/implementation/db
+
+# Node settings
+export NODE_PATH=/usr/local/lib/node_modules
+
+# ignore .svn, .bak files for bash-completion
+export FIGNORE=.svn:~:.bak
+
+# GIS stuff
+# This is the Postgres version that has GIS support
+export PATH=/usr/local/pgsql-9.1/bin:$PATH
+export PATH=/Library/Frameworks/PROJ.framework/Programs:$PATH
+export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH
+
+# TextMate shell support
+#export EDITOR="/usr/local/bin/mate -w"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+[[ -s "/Users/carstendreesbach/.rvm/scripts/rvm" ]] && source "/Users/carstendreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# This loads RVM into a shell session. KEEP THIS AS THE LAST LINE!
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  
+
+# function wrapper for brew to ensure we're using system ruby for vim compilation
+function storeOutput() { var=$(cat) }
+function brew() {
+  rvm current | storeOutput
+  rvm use system > /dev/null
+  /usr/local/bin/brew $*
+  rvm use $var > /dev/null
+}
+
