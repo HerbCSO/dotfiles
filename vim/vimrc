@@ -70,8 +70,8 @@ set hlsearch
 " clear out search highlighting
 nnoremap <leader><space> :noh<cr>
 " map tab to match brackets
-nnoremap <tab> %
-vnoremap <tab> %
+"nnoremap <tab> %
+"vnoremap <tab> %
 " make text wrap
 set wrap
 set textwidth=79
