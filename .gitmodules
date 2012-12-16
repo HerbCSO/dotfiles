@@ -46,3 +46,9 @@
 [submodule "vim/bundle/vim-pathogen"]
 	path = vim/bundle/vim-pathogen
 	url = git@github.com:tpope/vim-pathogen.git
+[submodule "vim/bundle/closetag"]
+	path = vim/bundle/closetag
+	url = git@github.com:vim-scripts/closetag.vim.git
+[submodule "vim/bundle/YankRing.vim"]
+	path = vim/bundle/YankRing.vim
+	url = https://github.com/vim-scripts/YankRing.vim.git
