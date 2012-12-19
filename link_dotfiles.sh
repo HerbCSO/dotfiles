@@ -17,3 +17,8 @@ ln -fFhs ~/dotfiles/vim                    ~/.vim
 ln -fFs ~/dotfiles/vim/vimrc              ~/.vimrc
 # zsh settings
 ln -fFs ~/dotfiles/zsh/zshrc              ~/.zshrc
+# inputrc
+ln -fFs ~/dotfiles/inputrc                ~/.inputrc
+# gemrc
+ln -fFs ~/dotfiles/gemrc                  ~/.gemrc
+

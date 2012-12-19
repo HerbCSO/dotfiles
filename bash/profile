@@ -84,7 +84,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  
 
 # function wrapper for brew to ensure we're using system ruby for vim compilation
-function storeOutput() { var=$(cat) }
+function storeOutput() { var=$(cat); }
 function brew() {
   rvm current | storeOutput
   rvm use system > /dev/null
