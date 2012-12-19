@@ -230,7 +230,11 @@ set scrolloff=3
 :nnoremap <silent> gr "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>:nohl<CR>
 " To use g{ to swap the current paragraph with the next:
 :nnoremap g{ {dap}p{
-" Note: Mappings above which perform a search-and-replace (ones containing :s/) will operate incorrectly on words with accented characters. To adjust the mappings above to work with your locale, replace all \w with [alphabet] and \W with [^alphabet], where alphabet is the set of characters in your alphabet. :help /\w
+" Note: Mappings above which perform a search-and-replace (ones containing :s/)
+" will operate incorrectly on words with accented characters. To adjust the
+" mappings above to work with your locale, replace all \w with [alphabet] and \W
+" with [^alphabet], where alphabet is the set of characters in your alphabet.
+" :help /\w
 
 " Pastetoggle for no code indenting on paste
 nnoremap <F2> :set invpaste paste?<CR>
