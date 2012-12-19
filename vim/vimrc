@@ -213,6 +213,9 @@ set cursorline
 " Keep at least 3 lines above/below cursor in view
 set scrolloff=3
 
+" Move view dir
+let g:viewdir = $HOME . "/.vim_views" . getcwd()
+
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
@@ -279,9 +282,9 @@ function! MakeSession()
 endfunction
 
 function! LoadSession()
+  let g:sessiondir = $HOME . "/.vim_sessions" . getcwd()
+  let g:sessionfile = g:sessiondir . "/session.vim"
   if argc() == 0 && ! &diff
-    let g:sessiondir = $HOME . "/.vim/sessions" . getcwd()
-    let g:sessionfile = g:sessiondir . "/session.vim"
     if (filereadable(g:sessionfile))
       exe 'source ' g:sessionfile
     else
