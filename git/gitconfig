@@ -78,4 +78,4 @@
   httpd = webrick
   browser = chrome
 [push]
-	default = simple
+	default = matching

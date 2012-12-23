@@ -58,3 +58,9 @@
 [submodule "vim/bundle/vim-unimpaired"]
 	path = vim/bundle/vim-unimpaired
 	url = git@github.com:tpope/vim-unimpaired.git
+[submodule "vim/bundle/vim-session"]
+	path = vim/bundle/vim-session
+	url = git@github.com:xolox/vim-session.git
+[submodule "vim/bundle/vim-ruby"]
+	path = vim/bundle/vim-ruby
+	url = git@github.com:vim-ruby/vim-ruby.git

@@ -267,45 +267,48 @@ function! MakePattern(text)
 endfunction
 vnoremap <silent> <F7> :<C-U>let @/="<C-R>=MakePattern(@*)<CR>"<CR>:set hls<CR>
 
+let g:session_directory=$HOME . "/.vim_sessions" . getcwd()
+let g:session_autoload='yes'
+let g:session_autosave='yes'
 " BEGIN: Auto-save sessions
 " http://vim.wikia.com/wiki/Go_away_and_come_back
 " Modified by robin burchell <w00t@inspircd.org> to only load/save sessions if started with no arguments.
-function! MakeSession()
-  if g:sessionfile != ""
-    echo "Saving."
-    if (filewritable(g:sessiondir) != 2)
-      exe 'silent !mkdir -p ' g:sessiondir
-      redraw!
-    endif
-    exe "mksession! " . g:sessionfile
-  endif
-endfunction
+"function! MakeSession()
+  "if g:sessionfile != ""
+    "echo "Saving."
+    "if (filewritable(g:sessiondir) != 2)
+      "exe 'silent !mkdir -p ' g:sessiondir
+      "redraw!
+    "endif
+    "exe "mksession! " . g:sessionfile
+  "endif
+"endfunction
 
-function! LoadSession()
-  let g:sessiondir = $HOME . "/.vim_sessions" . getcwd()
-  let g:sessionfile = g:sessiondir . "/session.vim"
-  if argc() == 0 && ! &diff
-    if (filereadable(g:sessionfile))
-      exe 'source ' g:sessionfile
-    else
-      echo "No session loaded."
-    endif
-  else
-    let g:sessionfile = ""
-    let g:sessiondir = ""
-    call ResCur()
-  endif
-endfunction
+"function! LoadSession()
+  "let g:sessiondir = $HOME . "/.vim_sessions" . getcwd()
+  "let g:sessionfile = g:sessiondir . "/session.vim"
+  "if argc() == 0 && ! &diff
+    "if (filereadable(g:sessionfile))
+      "exe 'source ' g:sessionfile
+    "else
+      "echo "No session loaded."
+    "endif
+  "else
+    "let g:sessionfile = ""
+    "let g:sessiondir = ""
+    "call ResCur()
+  "endif
+"endfunction
 
-function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
-endfunction
+"function! ResCur()
+  "if line("'\"") <= line("$")
+    "normal! g`"
+    "return 1
+  "endif
+"endfunction
 
-au VimEnter * nested :call LoadSession()
-au VimLeave * :call MakeSession()
+"au VimEnter * nested :call LoadSession()
+"au VimLeave * :call MakeSession()
 " END: Austo-save sessions
 
 " Append modeline after last line in buffer.

@@ -89,8 +89,8 @@ setopt AUTO_CD
 setopt EXTENDED_GLOB
 
 # customizations
-gd() { git diff $* | view -; }
-gdc() { gd --cached $*; }
+function gd() { git diff $* | view -; }
+function gdc() { gd --cached $*; }
 alias pygrep="grep --include='*.py' $*"
 alias rbgrep="grep --include='*.rb' $*"
 alias t="script/test $*"
