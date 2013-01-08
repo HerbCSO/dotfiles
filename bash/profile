@@ -92,3 +92,6 @@ function brew() {
   rvm use $var > /dev/null
 }
 
+# Adding JAVA_HOME for OSX Mountain Lion (10.8)
+export JAVA_HOME=`/usr/libexec/java_home`
+

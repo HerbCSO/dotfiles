@@ -15,9 +15,12 @@ termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
 backtick 1 5 5 true
 termcapinfo rxvt* 'hs:ts=\E]2;:fs=\007:ds=\E]2;\007'
-hardstatus string "screen (%n: %t)"
-caption string "%{= kw}%Y-%m-%d;%c %{= kw}%-Lw%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+Lw%1`"
-caption always
+# Something in the status line settings below makes the terminal keep updating,
+# so iTerm2 keeps showing the tab as if there had been changes - that's annoying,
+# so going back to using the previous status line
+# hardstatus string "screen (%n: %t)"
+# caption string "%{= kw}%Y-%m-%d;%c %{= kw}%-Lw%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+Lw%1`"
+# caption always
 
 termcapinfo xterm* ti@:te@
 
