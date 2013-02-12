@@ -1,4 +1,10 @@
+$if Bash
+  Space: magic-space
+$endif
 $if Mysql
   set keymap vi
   set editing-mode vi
 $endif
+# Suggestion from http://www.ukuug.org/events/linux2003/papers/bash_tips/
+# Repeat last command and type in an option
+"\M-o": "\C-p\C-a\M-f "

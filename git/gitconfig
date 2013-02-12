@@ -65,7 +65,7 @@
     la = !git l --all
 
 [core]
-	excludesfile = ~/.cvsignore
+	excludesfile = /Users/carstendreesbach/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
