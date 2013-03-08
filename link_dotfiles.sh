@@ -22,4 +22,5 @@ ln -fFs ~/dotfiles/zsh/zshrc              ~/.zshrc
 ln -fFs ~/dotfiles/inputrc                ~/.inputrc
 # gemrc
 ln -fFs ~/dotfiles/gemrc                  ~/.gemrc
-
+# GRC
+ln -fFs ~/dotfiles/grcat                  ~/.grcat

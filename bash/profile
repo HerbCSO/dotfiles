@@ -23,10 +23,10 @@ export M2_HOME=/usr/local/Cellar/maven2/2.2.1/libexec
 source ~/.alias
 
 # Run opower.bash for OPOWER dev environment setup
-source $workspace/opower.bash/opower.bash
+if [[ -f $workspace/opower.bash/opower.bash ]] source $workspace/opower.bash/opower.bash
 
 # Run techops.bash for extra functions
-source $workspace/implementation/bin/techops.bash
+if [[ -f $workspace/implementation/bin/techops.bash ]] source $workspace/implementation/bin/techops.bash
 
 # Get the which_servers function
 source /opt/pose/infrastructure/bin/which_servers.sh
@@ -34,8 +34,11 @@ source /opt/pose/infrastructure/bin/which_servers.sh
 # Set up template testing functions
 source ~/.template_tests.sh
 
+# Load GRC
+source "`brew --prefix`/etc/grc.bashrc"
+
 # Set up some other useful PSE functions
-source ~/bin/opower/useful_pse_functions.sh
+#source ~/bin/opower/useful_pse_functions.sh
 
 # Unified history files across sessions - see http://superuser.com/questions/37576/can-history-files-be-unified-in-bash
 # 2011-06-14 decided not to use this after all for now, too annoying to get mixed command history across sessions

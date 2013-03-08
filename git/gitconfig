@@ -79,3 +79,5 @@
   browser = chrome
 [push]
 	default = matching
+[gui]
+	recentrepo = /opt/pose/core
