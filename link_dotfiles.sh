@@ -24,3 +24,5 @@ ln -fFs ~/dotfiles/inputrc                ~/.inputrc
 ln -fFs ~/dotfiles/gemrc                  ~/.gemrc
 # GRC
 ln -fFs ~/dotfiles/grcat                  ~/.grcat
+# SVN settings
+ln -fFs ~/dotfiles/subversion             ~/.subversion
