@@ -78,6 +78,6 @@
   httpd = webrick
   browser = chrome
 [push]
-	default = matching
+	default = current
 [gui]
 	recentrepo = /opt/pose/core

@@ -374,3 +374,7 @@ inoremap <silent> <C-Down> <C-o>:<C-u>call MoveLineDown()<CR>
 vnoremap <silent> <C-Up> :<C-u>call MoveVisualUp()<CR>
 vnoremap <silent> <C-Down> :<C-u>call MoveVisualDown()<CR>
 
+if $VIM_CRONTAB == "true"
+  set nobackup
+  set nowritebackup
+endif
