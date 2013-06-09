@@ -3,6 +3,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export SVN_EDITOR=vi
 export PATH=/usr/local/share/python:/usr/local/bin:$HOME/bin:$HOME/svnmerge:/usr/local/mysql/bin:$PATH:/usr/local/sbin:/opt/pose/implementation/bin:/Users/carstendreesbach/pear/bin
+export HISTTIMEFORMAT='%F %T '
 
 # OPOWER Dev environment settings
 source ~/.secure
