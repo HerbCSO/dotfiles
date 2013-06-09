@@ -41,7 +41,7 @@ plugins=(brew bundler rails git ruby gem jira mvn node npm osx python rails3 rvm
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/heroku/bin:/Users/carstendreesbach/.rvm/gems/ruby-1.9.3-p125/bin:/Users/carstendreesbach/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/carstendreesbach/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/carstendreesbach/.rvm/bin:/Library/Frameworks/GDAL.framework/Programs:/Library/Frameworks/PROJ.framework/Programs:/usr/local/pgsql-9.1/bin:/usr/local/share/python:/usr/local/bin:/Users/carstendreesbach/bin:/Users/carstendreesbach/svnmerge:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/sbin:/opt/pose/implementation/bin:/opt/pose/opsqa/bin
+export PATH=/usr/local/heroku/bin:/Users/carstendreesbach/.rvm/bin:/Library/Frameworks/GDAL.framework/Programs:/Library/Frameworks/PROJ.framework/Programs:/usr/local/pgsql-9.1/bin:/usr/local/share/python:/usr/local/bin:/Users/carstendreesbach/bin:/Users/carstendreesbach/svnmerge:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/sbin:/opt/pose/implementation/bin:/opt/pose/opsqa/bin
 
 zstyle :omz:plugins:ssh-agent id_rsa launchpad-private.ssh
 
@@ -67,7 +67,8 @@ export HISTSIZE=1000000 HISTFILESIZE=1000000
 #PROMPT_COMMAND="$PROMPT_COMMAND;history -a; history -n"
 # New history config for supporting huffshell gem https://github.com/paulmars/huffshell
 shopt -s histappend
-#shopt extended_history
+setopt EXTENDED_HISTORY
+unalias history # set to fc -l 1 for some reason...?
 # setopt hist_expire_dups_first
 # setopt hist_ignore_dups # ignore duplication command history list
 #shopt hist_ignore_space
