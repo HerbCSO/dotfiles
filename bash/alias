@@ -1,0 +1,26 @@
+# Maven build aliases
+alias mci="mvn clean install"
+alias mrp="mvn release:prepare && mvn release:perform"
+alias mrb="mvn release:rollback"
+alias mcd="mvn clean deploy"
+
+# Textmate aliases
+alias mb='mate ~/.alias ~/.bashrc ~/.profile ~/.inputrc ~/.screenrc'
+
+# Sublime text aliases
+alias sb='subl ~/.alias ~/.bashrc ~/.profile ~/.inputrc ~/.screenrc ~/bin/opower/useful_pse_functions.sh'
+
+# Used for PostgresGIS for TileMill
+alias psql=/usr/local/pgsql-9.1/bin/psql
+
+# General bash aliases
+alias ll="ls -la"
+
+# Ack default ignore target directory
+alias ack="ack --ignore-dirs=target"
+
+# Git aliases
+alias gdl="git diff head~1 head | subl"
+
+# Alias to make crontab editing work with my vim config
+alias crontab="export VIM_CRONTAB=true;crontab"
