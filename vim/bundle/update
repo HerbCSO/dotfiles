@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-for i in $(find . -type d -depth 1)
-do 
-  pushd $i
-  git pull
-  popd
-done

@@ -107,3 +107,5 @@ function cdf() { cd *$1*/ } # stolen from @topfunky
 # load settings common to all shells
 source ~/.profile
 source ~/bin/dc6_settings.sh
+# now reset BLOCKSIZE since '1 doesn't work on Mac
+BLOCKSIZE=

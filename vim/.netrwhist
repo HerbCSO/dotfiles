@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/carstendreesbach/.rvm/gems/ruby-1.9.2-p320/gems/utilityconfig-0.1.2/lib'
-let g:netrw_dirhist_2='/opt/pose/core/db/postpatches'
-let g:netrw_dirhist_3='/System/Library'
-let g:netrw_dirhist_4='/opt/pose/ruby/imports-will'

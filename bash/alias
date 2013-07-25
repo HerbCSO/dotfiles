@@ -21,6 +21,10 @@ alias ack="ack --ignore-dirs=target"
 
 # Git aliases
 alias gdl="git diff head~1 head | subl"
+alias git=hub
 
 # Alias to make crontab editing work with my vim config
 alias crontab="export VIM_CRONTAB=true;crontab"
+
+# Alias for mvn3 where required
+alias mvn3="/usr/bin/mvn3"
