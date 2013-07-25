@@ -13,9 +13,6 @@ ln -fFs ~/dotfiles/git/gitignore_global   ~/.gitignore_global
 ln -fFs ~/dotfiles/git/cvsignore          ~/.cvsignore
 # screen settings
 ln -fFs ~/dotfiles/screen/screenrc        ~/.screenrc
-# vim settings
-ln -fFhs ~/dotfiles/vim                    ~/.vim
-ln -fFs ~/dotfiles/vim/vimrc              ~/.vimrc
 # zsh settings
 ln -fFs ~/dotfiles/zsh/zshrc              ~/.zshrc
 # inputrc
