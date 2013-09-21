@@ -19,6 +19,9 @@ export CONFIG_DOMAIN=local
 # Setting for running report app
 export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
 export M2_HOME=/usr/local/Cellar/maven2/2.2.1/libexec
+# getting hub to use GH:E
+export GITHUB_HOST=github.va.opower.it
+export GITHUB_USER=carsten-dreesbach
 
 # Load aliases
 source ~/.alias
@@ -27,13 +30,10 @@ source ~/.alias
 if [[ -f $workspace/opower.bash/opower.bash ]] source $workspace/opower.bash/opower.bash
 
 # Run techops.bash for extra functions
-if [[ -f $workspace/techops_bash/techops.bash ]] source $workspace/techops_bash/techops.bash
+if [[ -f $workspace/techops.bash/techops.bash ]] source $workspace/techops.bash/techops.bash
 
 # Get the which_servers function
 source /opt/pose/infrastructure/bin/which_servers.sh
-
-# Set up template testing functions
-source ~/.template_tests.sh
 
 # Load GRC
 source "`brew --prefix`/etc/grc.bashrc"
@@ -85,7 +85,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 [[ -s "/Users/carstendreesbach/.rvm/scripts/rvm" ]] && source "/Users/carstendreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # This loads RVM into a shell session. KEEP THIS AS THE LAST LINE!
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # function wrapper for brew to ensure we're using system ruby for vim compilation
 function storeOutput() { var=$(cat); }
@@ -99,3 +99,6 @@ function brew() {
 # Adding JAVA_HOME for OSX Mountain Lion (10.8)
 export JAVA_HOME=`/usr/libexec/java_home`
 
+# Hive setup (from http://noobergeek.blogspot.com/2012/09/installing-hive-on-osx-lion-107-with.html)
+export HADOOP_HOME=/usr/local/Cellar/hadoop/1.2.1
+export HIVE_HOME=/usr/local/Cellar/hive/0.11.0/libexec

@@ -81,3 +81,5 @@
 	default = current
 [gui]
 	recentrepo = /opt/pose/core
+[hub]
+	host = github.va.opower.it
