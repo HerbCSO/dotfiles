@@ -28,3 +28,6 @@ alias crontab="export VIM_CRONTAB=true;crontab"
 
 # Alias for mvn3 where required
 alias mvn3="/usr/bin/mvn3"
+
+# grep setup
+alias cgrep="grep --color=auto -nisI"
