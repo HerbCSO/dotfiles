@@ -22,6 +22,7 @@ export M2_HOME=/usr/local/Cellar/maven2/2.2.1/libexec
 # getting hub to use GH:E
 export GITHUB_HOST=github.va.opower.it
 export GITHUB_USER=carsten-dreesbach
+export GITHUB_URL=https://github.va.opower.it/
 
 # Load aliases
 source "$HOME/.alias"
