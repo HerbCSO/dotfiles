@@ -22,6 +22,8 @@ alias ack="ack --ignore-dirs=target"
 # Git aliases
 alias gdl="git diff head~1 head | subl"
 alias git=hub
+alias gph="git push heroku master"
+alias git-stats="git ls-tree --name-only -z -r HEAD | xargs -0 -n1 git blame --line-porcelain | grep '^author ' | sort | uniq -c | sort -nr"
 
 # Alias to make crontab editing work with my vim config
 alias crontab="export VIM_CRONTAB=true;crontab"

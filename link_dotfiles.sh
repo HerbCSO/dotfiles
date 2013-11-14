@@ -13,6 +13,8 @@ ln -fFs ~/dotfiles/git/gitignore_global   ~/.gitignore_global
 ln -fFs ~/dotfiles/git/cvsignore          ~/.cvsignore
 # screen settings
 ln -fFs ~/dotfiles/screen/screenrc        ~/.screenrc
+# tmux settings
+ln -fFs ~/dotfiles/tmux/tmux.conf         ~/.tmux.conf
 # zsh settings
 ln -fFs ~/dotfiles/zsh/zshrc              ~/.zshrc
 # inputrc
