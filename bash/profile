@@ -18,7 +18,8 @@ export CDPATH=.:~:/opt/pose:/opt/pose/clients:$CDPATH
 export CONFIG_DOMAIN=local
 # Setting for running report app
 export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
-export M2_HOME=/usr/local/Cellar/maven2/2.2.1/libexec
+# No longer needed? Seems to work without this...
+# export M2_HOME=/usr/local/Cellar/maven2/2.2.1/libexec
 # getting hub to use GH:E
 export GITHUB_HOST=github.va.opower.it
 export GITHUB_USER=carsten-dreesbach
@@ -28,13 +29,13 @@ export GITHUB_URL=https://github.va.opower.it/
 source "$HOME/.alias"
 
 # Run opower.bash for OPOWER dev environment setup
-if [[ -f $workspace/opower.bash/opower.bash ]] source $workspace/opower.bash/opower.bash
+[[ -f $workspace/opower.bash/opower.bash ]] && source $workspace/opower.bash/opower.bash
 
 # Run techops.bash for extra functions
-if [[ -f $workspace/techops.bash/techops.bash ]] source $workspace/techops.bash/techops.bash
+[[ -f $workspace/techops.bash/techops.bash ]] && source $workspace/techops.bash/techops.bash
 
 # Load GRC
-if [[ -x brew ]] if [[ -f "`brew --prefix`/etc/grc.bashrc" ]] source "`brew --prefix`/etc/grc.bashrc"
+[[ -x brew ]] && [[ -f "`brew --prefix`/etc/grc.bashrc" ]] && source "`brew --prefix`/etc/grc.bashrc"
 
 # Set up some other useful PSE functions
 #source ~/bin/opower/useful_pse_functions.sh
@@ -46,7 +47,7 @@ export HISTSIZE=1000000 HISTFILESIZE=1000000
 #shopt -s histappend
 #PROMPT_COMMAND="$PROMPT_COMMAND;history -a; history -n"
 # New history config for supporting huffshell gem https://github.com/paulmars/huffshell
-if [[ -x shopt ]] shopt -s histappend
+[[ -x shopt ]] && shopt -s histappend
 #shopt extended_history
 # setopt hist_expire_dups_first
 # setopt hist_ignore_dups # ignore duplication command history list
@@ -54,8 +55,8 @@ if [[ -x shopt ]] shopt -s histappend
 #shopt -s histverify
 #shopt inc_append_history
 # setopt share_history # share command history data
-if [[ -x shopt ]] shopt -s cdspell
-if [[ -x shopt ]] shopt -s nocaseglob
+[[ -x shopt ]] && shopt -s cdspell
+[[ -x shopt ]] && shopt -s nocaseglob
 
 # OpsQA settings (from https://wiki.opower.com/display/OQ/Ops+QA+Framework)
 export PATH=$PATH:$workspace/opsqa/bin
@@ -95,7 +96,7 @@ function brew() {
 }
 
 # Adding JAVA_HOME for OSX Mountain Lion (10.8)
-if [[ -x /usr/libexec/java_home ]] export JAVA_HOME=`/usr/libexec/java_home`
+[[ -x /usr/libexec/java_home ]] && export JAVA_HOME=`/usr/libexec/java_home`
 
 # Hive setup (from http://noobergeek.blogspot.com/2012/09/installing-hive-on-osx-lion-107-with.html)
 export HADOOP_HOME=/usr/local/Cellar/hadoop/1.2.1
