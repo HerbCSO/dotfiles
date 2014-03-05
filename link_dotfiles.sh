@@ -17,6 +17,8 @@ ln -fFs ~/dotfiles/screen/screenrc        ~/.screenrc
 ln -fFs ~/dotfiles/tmux/tmux.conf         ~/.tmux.conf
 # zsh settings
 ln -fFs ~/dotfiles/zsh/zshrc              ~/.zshrc
+# oh-my-zsh settings
+ln -fFs ~/dotfiles/zsh/herbcso.zsh-theme  ~/.oh-my-zsh/themes/herbcso.zsh-theme
 # inputrc
 ln -fFs ~/dotfiles/inputrc                ~/.inputrc
 # gemrc
