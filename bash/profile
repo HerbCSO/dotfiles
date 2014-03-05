@@ -6,7 +6,9 @@ export PATH=/usr/local/share/python:/usr/local/bin:$HOME/bin:$HOME/svnmerge:/usr
 export HISTTIMEFORMAT='%F %T '
 
 # OPOWER Dev environment settings
-source "$HOME/.secure"
+if [ -f "$HOME/.secure" ]; then
+  source "$HOME/.secure"
+fi
 export R_HOME=/Library/Frameworks/R.framework/Versions/2.12/Resources/
 export workspace=/opt/pose
 export workspace_client=/opt/pose/client
@@ -26,7 +28,7 @@ export GITHUB_USER=carsten-dreesbach
 export GITHUB_URL=https://github.va.opower.it/
 
 # Load aliases
-source "$HOME/.alias"
+[[ -f "$HOME/.alias" ]] && source "$HOME/.alias"
 
 # Run opower.bash for OPOWER dev environment setup
 [[ -f $workspace/opower.bash/opower.bash ]] && source $workspace/opower.bash/opower.bash
@@ -81,13 +83,10 @@ export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-[[ -s "/Users/carstendreesbach/.rvm/scripts/rvm" ]] && source "/Users/carstendreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# This loads RVM into a shell session. KEEP THIS AS THE LAST LINE!
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # function wrapper for brew to ensure we're using system ruby for vim compilation
-function storeOutput() { var=$(cat); }
+function storeOutput() { 
+  var=$(cat); 
+}
 function brew() {
   rvm current | storeOutput
   rvm use system > /dev/null
@@ -99,5 +98,13 @@ function brew() {
 [[ -x /usr/libexec/java_home ]] && export JAVA_HOME=`/usr/libexec/java_home`
 
 # Hive setup (from http://noobergeek.blogspot.com/2012/09/installing-hive-on-osx-lion-107-with.html)
-export HADOOP_HOME=/usr/local/Cellar/hadoop/1.2.1
-export HIVE_HOME=/usr/local/Cellar/hive/0.11.0/libexec
+if [[ -d /usr/local/Cellar ]]; then
+  export HADOOP_HOME=/usr/local/Cellar/hadoop/1.2.1
+  export HIVE_HOME=/usr/local/Cellar/hive/0.11.0/libexec
+fi
+
+[[ -s "/Users/carstendreesbach/.rvm/scripts/rvm" ]] && source "/Users/carstendreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# This loads RVM into a shell session. KEEP THIS AS THE LAST LINE!
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+

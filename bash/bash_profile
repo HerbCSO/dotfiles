@@ -8,6 +8,8 @@ fi
 if [ -f ~/.profile ]; then
   source ~/.profile
 fi
-
+if [ -f "$HOME/.secure" ]; then
+  source "$HOME/.secure"
+fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
