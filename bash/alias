@@ -37,3 +37,6 @@ alias mvn2="brew unlink --overwrite maven2 && brew link --overwrite maven2"
 
 # grep setup
 alias cgrep="grep --color=auto -nisI"
+
+# Mosh
+alias ssh="mosh --server=/nfs/shared/user_files/carsten.dreesbach/bin/mosh-server"
