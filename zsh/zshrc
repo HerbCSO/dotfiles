@@ -52,7 +52,7 @@ plugins=(brew bundler rails git ruby gem jira mvn node npm osx python rvm screen
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/local/heroku/bin:/Users/carstendreesbach/.rvm/bin:/Library/Frameworks/GDAL.framework/Programs:/Library/Frameworks/PROJ.framework/Programs:/usr/local/pgsql-9.1/bin:/usr/local/share/python:/usr/local/bin:/Users/carstendreesbach/bin:/Users/carstendreesbach/svnmerge:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/sbin:/opt/pose/implementation/bin:/opt/pose/opsqa/bin
+export PATH=$PATH:/usr/local/heroku/bin:/Library/Frameworks/GDAL.framework/Programs:/Library/Frameworks/PROJ.framework/Programs:/usr/local/pgsql-9.1/bin:/usr/local/share/python:/usr/local/bin:/Users/carstendreesbach/bin:/Users/carstendreesbach/svnmerge:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/sbin:/opt/pose/implementation/bin:/opt/pose/opsqa/bin
 
 zstyle :omz:plugins:ssh-agent id_rsa launchpad-private.ssh
 
