@@ -121,8 +121,16 @@ source ~/.profile
 # now reset BLOCKSIZE since '1 doesn't work on Mac
 BLOCKSIZE=
 
-
-
+# function wrapper for brew to ensure we're using system ruby for vim compilation
+function storeOutput { 
+  var=$(cat); 
+}
+function brew() {
+  rvm current | storeOutput
+  rvm use system > /dev/null
+  /usr/local/bin/brew $*
+  rvm use $var > /dev/null
+}
 
 # turn off tracing
 #unsetopt xtrace

@@ -6,9 +6,7 @@ export PATH=/usr/local/share/python:/usr/local/bin:$HOME/bin:$HOME/svnmerge:/usr
 export HISTTIMEFORMAT='%F %T '
 
 # OPOWER Dev environment settings
-if [ -f "$HOME/.secure" ]; then
-  source "$HOME/.secure"
-fi
+test -f "$HOME/.secure" && . "$HOME/.secure"
 export R_HOME=/Library/Frameworks/R.framework/Versions/2.12/Resources/
 export workspace=/opt/pose
 export workspace_client=/opt/pose/client
@@ -28,19 +26,19 @@ export GITHUB_USER=carsten-dreesbach
 export GITHUB_URL=https://github.va.opower.it/
 
 # Load aliases
-[[ -f "$HOME/.alias" ]] && source "$HOME/.alias"
+test -f "$HOME/.alias" && . "$HOME/.alias"
 
 # Run opower.bash for OPOWER dev environment setup
-[[ -f $workspace/opower.bash/opower.bash ]] && source $workspace/opower.bash/opower.bash
+test -f $workspace/opower.bash/opower.bash && . $workspace/opower.bash/opower.bash
 
 # Run techops.bash for extra functions
-[[ -f $workspace/techops.bash/techops.bash ]] && source $workspace/techops.bash/techops.bash
+test -f $workspace/techops.bash/techops.bash && . $workspace/techops.bash/techops.bash
 
 # Load GRC
-[[ -x brew ]] && [[ -f "`brew --prefix`/etc/grc.bashrc" ]] && source "`brew --prefix`/etc/grc.bashrc"
+test -x brew && test -f "`brew --prefix`/etc/grc.bashrc" && . "`brew --prefix`/etc/grc.bashrc"
 
 # Set up some other useful PSE functions
-#source ~/bin/opower/useful_pse_functions.sh
+#. ~/bin/opower/useful_pse_functions.sh
 
 # Unified history files across sessions - see http://superuser.com/questions/37576/can-history-files-be-unified-in-bash
 # 2011-06-14 decided not to use this after all for now, too annoying to get mixed command history across sessions
@@ -49,7 +47,7 @@ export HISTSIZE=1000000 HISTFILESIZE=1000000
 #shopt -s histappend
 #PROMPT_COMMAND="$PROMPT_COMMAND;history -a; history -n"
 # New history config for supporting huffshell gem https://github.com/paulmars/huffshell
-[[ -x shopt ]] && shopt -s histappend
+test -x shopt && shopt -s histappend
 #shopt extended_history
 # setopt hist_expire_dups_first
 # setopt hist_ignore_dups # ignore duplication command history list
@@ -57,8 +55,8 @@ export HISTSIZE=1000000 HISTFILESIZE=1000000
 #shopt -s histverify
 #shopt inc_append_history
 # setopt share_history # share command history data
-[[ -x shopt ]] && shopt -s cdspell
-[[ -x shopt ]] && shopt -s nocaseglob
+test -x shopt && shopt -s cdspell
+test -x shopt && shopt -s nocaseglob
 
 # OpsQA settings (from https://wiki.opower.com/display/OQ/Ops+QA+Framework)
 export PATH=$PATH:$workspace/opsqa/bin
@@ -83,19 +81,8 @@ export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# function wrapper for brew to ensure we're using system ruby for vim compilation
-function storeOutput() { 
-  var=$(cat); 
-}
-function brew() {
-  rvm current | storeOutput
-  rvm use system > /dev/null
-  /usr/local/bin/brew $*
-  rvm use $var > /dev/null
-}
-
 # Adding JAVA_HOME for OSX Mountain Lion (10.8)
-[[ -x /usr/libexec/java_home ]] && export JAVA_HOME=`/usr/libexec/java_home`
+test -x /usr/libexec/java_home && export JAVA_HOME=`/usr/libexec/java_home`
 
 # Hive setup (from http://noobergeek.blogspot.com/2012/09/installing-hive-on-osx-lion-107-with.html)
 if [[ -d /usr/local/Cellar ]]; then
@@ -103,8 +90,8 @@ if [[ -d /usr/local/Cellar ]]; then
   export HIVE_HOME=/usr/local/Cellar/hive/0.11.0/libexec
 fi
 
-[[ -s "/Users/carstendreesbach/.rvm/scripts/rvm" ]] && source "/Users/carstendreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+test -s "/Users/carstendreesbach/.rvm/scripts/rvm" && . "/Users/carstendreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # This loads RVM into a shell session. KEEP THIS AS THE LAST LINE!
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+test -s "$HOME/.rvm/scripts/rvm" && . "$HOME/.rvm/scripts/rvm"
 
