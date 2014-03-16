@@ -90,6 +90,10 @@ if [[ -d /usr/local/Cellar ]]; then
   export HIVE_HOME=/usr/local/Cellar/hive/0.11.0/libexec
 fi
 
+# Linux keychain
+test -x $(which keychain) && keychain id_dsa carsten id_rsa id_rsa_opower launchpad-private.ssh &> /dev/null
+test -f $HOME/.keychain/spidey8linux-sh && . $HOME/.keychain/spidey8linux-sh
+
 test -s "/Users/carstendreesbach/.rvm/scripts/rvm" && . "/Users/carstendreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # This loads RVM into a shell session. KEEP THIS AS THE LAST LINE!
