@@ -28,9 +28,6 @@ export GITHUB_URL=https://github.va.opower.it/
 # Load aliases
 test -f "$HOME/.alias" && . "$HOME/.alias"
 
-# Run opower.bash for OPOWER dev environment setup
-test -f $workspace/opower.bash/opower.bash && . $workspace/opower.bash/opower.bash
-
 # Run techops.bash for extra functions
 test -f $workspace/techops.bash/techops.bash && . $workspace/techops.bash/techops.bash
 
@@ -91,8 +88,11 @@ if [[ -d /usr/local/Cellar ]]; then
 fi
 
 # Linux keychain
-test -x $(which keychain) && keychain id_dsa carsten id_rsa id_rsa_opower launchpad-private.ssh &> /dev/null
+test -x "$(which keychain)" && keychain id_dsa carsten id_rsa id_rsa_opower launchpad-private.ssh &> /dev/null
 test -f $HOME/.keychain/$(hostname)-sh && . $HOME/.keychain/$(hostname)-sh
+
+# Run opower.bash for OPOWER dev environment setup
+test -f $workspace/opower.bash/opower.bash && . $workspace/opower.bash/opower.bash
 
 test -s "/Users/carstendreesbach/.rvm/scripts/rvm" && . "/Users/carstendreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
