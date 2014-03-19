@@ -39,7 +39,7 @@ alias mvn2="brew unlink --overwrite maven2 && brew link --overwrite maven2"
 alias cgrep="grep --color=auto -nisI"
 
 # Mosh
-alias ssh="mosh --server=/nfs/shared/user_files/carsten.dreesbach/bin/mosh-server"
+alias mosh="\mosh --server=/nfs/shared/user_files/carsten.dreesbach/bin/mosh-server"
 
 # Tmux
 # Hit tab to complete session name
