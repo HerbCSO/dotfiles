@@ -2,7 +2,8 @@
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export SVN_EDITOR=vi
-export PATH=/usr/local/share/python:/usr/local/bin:$HOME/bin:$HOME/svnmerge:/usr/local/mysql/bin:$PATH:/usr/local/sbin:/opt/pose/implementation/bin:/Users/carstendreesbach/pear/bin
+export PATH=/usr/local/bin:$HOME/bin:$HOME/svnmerge:/usr/local/mysql/bin:$PATH:/usr/local/sbin:/opt/pose/implementation/bin:/Users/carstendreesbach/pear/bin
+test -d /opt/cisco/anyconnect/bin && export PATH=$PATH:/opt/cisco/anyconnect/bin
 export HISTTIMEFORMAT='%F %T '
 
 # OPOWER Dev environment settings
@@ -57,7 +58,7 @@ test -x shopt && shopt -s nocaseglob
 
 # OpsQA settings (from https://wiki.opower.com/display/OQ/Ops+QA+Framework)
 export PATH=$PATH:$workspace/opsqa/bin
-export RUBYLIB=$RUBYLIB:$workspace/opsqa/lib:$workspace/clyde/lib
+#export RUBYLIB=$RUBYLIB:$workspace/opsqa/lib:$workspace/clyde/lib
 export CLYDE_UNIT_PATH=$workspace/implementation/db
 
 # Node settings

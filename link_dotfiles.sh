@@ -26,6 +26,6 @@ ln -fFs ~/dotfiles/gemrc                  ~/.gemrc
 # GRC
 ln -fFs ~/dotfiles/grcat                  ~/.grcat
 # SVN settings
-ln -fFs ~/dotfiles/subversion             ~/.subversion
+if [ ! -d ~/.subversion ]; then ln -fFs ~/dotfiles/subversion ~/.subversion; fi
 # Aliases
 ln -fFs ~/dotfiles/bash/alias             ~/.alias
