@@ -29,6 +29,10 @@ export GITHUB_URL=https://github.va.opower.it/
 # Load aliases
 test -f "$HOME/.alias" && . "$HOME/.alias"
 
+# Allow for vim crontab editing - idea from
+# http://drawohara.com/post/6344279/crontab-temp-file-must-be-edited-in-place
+alias crontab="VIM_CRONTAB=true crontab"
+
 # Run techops.bash for extra functions
 test -f $workspace/techops.bash/techops.bash && . $workspace/techops.bash/techops.bash
 
