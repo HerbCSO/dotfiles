@@ -11,6 +11,9 @@ ln -fFs ~/dotfiles/git/gitignore_global   ~/.gitignore_global
 # rather than a global gitignore file, using .cvsignore which is picked up by other
 # utilities automatically - see https://github.com/tpope/vim-pathogen#faq
 ln -fFs ~/dotfiles/git/cvsignore          ~/.cvsignore
+# vim settings
+ln -fFs ~/dotfiles/vim-config/vimrc       ~/.vimrc
+if [ ! -d ~/.vim ]; then ln -fFs ~/dotfiles/vim-config ~/.vim; fi
 # screen settings
 ln -fFs ~/dotfiles/screen/screenrc        ~/.screenrc
 # tmux settings
