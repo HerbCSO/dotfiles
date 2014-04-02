@@ -13,7 +13,6 @@ export workspace=/opt/pose
 export workspace_client=/opt/pose/client
 export svnmerge_path=$workspace/svnmerge
 export SSH_TUNNEL_REMOTE_PORT=5542
-export DINO_MAIN=$workspace/dino
 export CLIENT_MAIN=$R/main/clients
 export CDPATH=.:~:/opt/pose:/opt/pose/clients:$CDPATH
 export CONFIG_DOMAIN=local
