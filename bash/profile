@@ -16,8 +16,10 @@ export SSH_TUNNEL_REMOTE_PORT=5542
 export CLIENT_MAIN=$R/main/clients
 export CDPATH=.:~:/opt/pose:/opt/pose/clients:$CDPATH
 export CONFIG_DOMAIN=local
+export QUACK_SPECS_LOCATION=$workspace/quack-specs
+export QUACK_RESULTS_LOCATION=/tmp
 # Setting for running report app
-export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
+export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m -Djavax.net.ssl.trustStore=$JAVA_HOME/jre/lib/security/trust.jks -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.keyStore=$JAVA_HOME/jre/lib/security/trust.jks -Djavax.net.ssl.keyStoreType=jks -Djavax.net.ssl.keyStorePassword=changeit"
 # No longer needed? Seems to work without this...
 # export M2_HOME=/usr/local/Cellar/maven2/2.2.1/libexec
 # getting hub to use GH:E

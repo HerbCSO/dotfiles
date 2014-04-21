@@ -34,6 +34,8 @@ alias mvn3="/usr/bin/mvn3"
 # switching to mvn2/mvn3
 alias mvn3="brew unlink --overwrite maven && brew link --overwrite maven"
 alias mvn2="brew unlink --overwrite maven2 && brew link --overwrite maven2"
+# getting rid of the annoying .py for svnmerge
+alias svnmerge="svnmerge.py"
 
 # grep setup
 alias cgrep="grep --color=auto -nisI"

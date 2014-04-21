@@ -32,3 +32,6 @@ ln -fFs ~/dotfiles/grcat                  ~/.grcat
 if [ ! -d ~/.subversion ]; then ln -fFs ~/dotfiles/subversion ~/.subversion; fi
 # Aliases
 ln -fFs ~/dotfiles/bash/alias             ~/.alias
+# Slate config
+ln -fFs ~/dotfiles/slate                  ~/.slate
+
