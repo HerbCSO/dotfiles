@@ -24,7 +24,9 @@ export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m -Dj
 # export M2_HOME=/usr/local/Cellar/maven2/2.2.1/libexec
 # getting hub to use GH:E
 export GITHUB_HOST=github.va.opower.it
+export G="git@github.va.opower.it"
 export GITHUB_USER=carsten-dreesbach
+export GIT_USER=carsten-dreesbach
 export GITHUB_URL=https://github.va.opower.it/
 
 # Load aliases
