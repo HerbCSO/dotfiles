@@ -39,6 +39,7 @@ layout 2monitors 'Spotify':REPEAT                         ${1-main}
 layout 2monitors 'Sublime Text':REPEAT                    ${2-full}
 layout 2monitors 'IntelliJ IDEA':REPEAT                   ${2-full}
 layout 2monitors 'Pandora':REPEAT                         ${1-top-l}
+layout 2monitors 'Mailbox (Beta)':REPEAT                  ${2-full}
 
 # 1 Monitor layout
 layout 1monitor 'iTerm':SORT_TITLE,REPEAT                 ${1-main}
@@ -51,6 +52,7 @@ layout 1monitor 'Spotify':REPEAT                          ${1-main}
 layout 1monitor 'Sublime Text':REPEAT                     ${1-full}
 layout 1monitor 'IntelliJ IDEA':REPEAT                    ${1-full}
 layout 1monitor 'Pandora':REPEAT                          ${1-top-l}
+layout 1monitor 'Mailbox (Beta)':REPEAT                   ${1-full}
 
 # Default Layouts
 default 2monitors resolutions:${mon-laptop};${mon-thunderbolt}
