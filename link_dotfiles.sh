@@ -13,6 +13,8 @@ ln -fFs ~/dotfiles/git/gitignore_global   ~/.gitignore_global
 ln -fFs ~/dotfiles/git/cvsignore          ~/.cvsignore
 # vim settings
 ln -fFs ~/dotfiles/vim-config/vimrc       ~/.vimrc
+ln -fFs ~/dotfiles/my-vim-config/vimrc.mine       ~/dotfiles/vim-config/vimrc.mine
+ln -fFs ~/dotfiles/my-vim-config/gvimrc.mine       ~/dotfiles/vim-config/gvimrc.mine
 if [ ! -d ~/.vim ]; then ln -fFs ~/dotfiles/vim-config ~/.vim; fi
 # screen settings
 ln -fFs ~/dotfiles/screen/screenrc        ~/.screenrc
