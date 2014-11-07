@@ -11,7 +11,7 @@ alias mb='mate ~/.alias ~/.bashrc ~/.profile ~/.inputrc ~/.screenrc'
 alias sb='subl ~/.alias ~/.bashrc ~/.profile ~/.inputrc ~/.screenrc ~/bin/opower/useful_pse_functions.sh'
 
 # Used for PostgresGIS for TileMill
-alias psql=/usr/local/pgsql-9.1/bin/psql
+# alias psql=/usr/local/pgsql-9.1/bin/psql
 
 # General bash aliases
 alias ll="ls -la"

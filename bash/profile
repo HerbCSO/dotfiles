@@ -107,3 +107,6 @@ test -s "/Users/carstendreesbach/.rvm/scripts/rvm" && . "/Users/carstendreesbach
 # This loads RVM into a shell session. KEEP THIS AS THE LAST LINE!
 test -s "$HOME/.rvm/scripts/rvm" && . "$HOME/.rvm/scripts/rvm"
 
+# Test for PGSQL
+export PGDATA=/usr/local/pgsql/data/
+

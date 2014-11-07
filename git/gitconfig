@@ -25,7 +25,8 @@
 # shows a great summary of your repo
 [alias]
     lol = log --oneline --graph --decorate
-  	timeline = log --oneline --graph --decorate
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    timeline = log --oneline --graph --decorate
     st = status
     ci = commit
     co = checkout
@@ -65,7 +66,7 @@
     la = !git l --all
 
 [core]
-	excludesfile = ~/.cvsignore
+	excludesfile = /Users/carsten.dreesbach/.cvsignore
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
