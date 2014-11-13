@@ -1,6 +1,6 @@
 # set the trace prompt to include seconds, nanoseconds, script name and line number
 #PS4='+$(date "+%s:%N") %N:%i> '
-# save file stderr to file descriptor 3 and redirect stderr (including trace 
+# save file stderr to file descriptor 3 and redirect stderr (including trace
 # output) to a file with the script's PID as an extension
 #exec 3>&2 2>/tmp/startlog.$$
 # set options to turn on tracing and expansion of commands contained in the prompt
@@ -105,6 +105,8 @@ setopt NO_NOTIFY
 setopt NO_BEEP
 setopt AUTO_CD
 setopt EXTENDED_GLOB
+# when pattern matching fails, simply use the command as is - fixes git reset HEAD^ problem
+setopt NO_NOMATCH
 
 # customizations
 function gd() { git diff $* | view -; }
@@ -127,8 +129,8 @@ source ~/.profile
 BLOCKSIZE=
 
 # function wrapper for brew to ensure we're using system ruby for vim compilation
-function storeOutput { 
-  var=$(cat); 
+function storeOutput {
+  var=$(cat);
 }
 function brew() {
   rvm current | storeOutput

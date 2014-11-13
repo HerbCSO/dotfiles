@@ -65,6 +65,9 @@
     l = "!. ~/.githelpers && pretty_git_log"
     la = !git l --all
 
+    # branching and testing
+    retest = rebase -i --exec "bash -lic 'rvm use 1.9.3-p547 && rspec'" master
+
 [core]
 	excludesfile = /Users/carsten.dreesbach/.cvsignore
 [difftool "sourcetree"]
