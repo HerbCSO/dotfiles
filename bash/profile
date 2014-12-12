@@ -1,7 +1,7 @@
 # General settings
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export SVN_EDITOR=vi
+export SVN_EDITOR='mvim -vf'
 export PATH=/usr/local/bin:$HOME/bin:$HOME/svnmerge:/usr/local/mysql/bin:$PATH:/usr/local/sbin:/opt/pose/implementation/bin:/Users/carstendreesbach/pear/bin
 test -d /opt/cisco/anyconnect/bin && export PATH=$PATH:/opt/cisco/anyconnect/bin
 export HISTTIMEFORMAT='%F %T '
@@ -110,3 +110,7 @@ test -s "$HOME/.rvm/scripts/rvm" && . "$HOME/.rvm/scripts/rvm"
 # Test for PGSQL
 export PGDATA=/usr/local/pgsql/data/
 
+# Docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/carsten.dreesbach/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
