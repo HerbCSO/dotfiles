@@ -2,7 +2,7 @@
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export SVN_EDITOR='mvim -vf'
-export PATH=/usr/local/bin:$HOME/bin:$HOME/svnmerge:/usr/local/mysql/bin:$PATH:/usr/local/sbin:/opt/pose/implementation/bin:/Users/carstendreesbach/pear/bin
+export PATH=/usr/local/bin:$HOME/bin:$HOME/svnmerge:/usr/local/mysql/bin:$PATH:/usr/local/sbin:/opt/pose/implementation/bin:/Users/carstendreesbach/pear/bin:~/.npm-global/bin
 test -d /opt/cisco/anyconnect/bin && export PATH=$PATH:/opt/cisco/anyconnect/bin
 export HISTTIMEFORMAT='%F %T '
 
@@ -99,6 +99,9 @@ fi
 test -x "$(which keychain)" && keychain id_dsa carsten id_rsa id_rsa_opower launchpad-private.ssh &> /dev/null
 test -f $HOME/.keychain/$(hostname)-sh && . $HOME/.keychain/$(hostname)-sh
 
+# Add z for directory jumping - see https://github.com/rupa/z
+test -f $HOME/bin/z/z.sh && . $HOME/bin/z/z.sh
+
 # Run opower.bash for OPOWER dev environment setup
 test -f $workspace/opower.bash/opower.bash && . $workspace/opower.bash/opower.bash
 
@@ -114,3 +117,8 @@ export PGDATA=/usr/local/pgsql/data/
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/carsten.dreesbach/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
+
+# Settings for Opower client provisioning
+export puppet_dir=$workspace/puppet
+export crypto_dir=$workspace/client-crypto
+

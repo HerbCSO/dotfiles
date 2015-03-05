@@ -50,4 +50,4 @@ alias tma='tmux attach -d -t'
 # Opower server shortcuts
 alias ia3='imp-app-1003'
 alias id5='imp-db-report-1005'
-
+alias ws='which_servers -c'

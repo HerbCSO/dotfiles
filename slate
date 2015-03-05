@@ -11,7 +11,7 @@ alias mon-laptop      1440x900
 alias mon-thunderbolt 1920x1080
 
 # Position Aliases
-alias 1-chat  move screenOriginX;screenOriginY                               240;555                         ${mon-thunderbolt}
+alias 1-chat  move screenOriginX;screenOriginY                               240;575                         ${mon-thunderbolt}
 alias 1-main  move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/3   screenSizeX/3*2;screenSizeY/3*2 ${mon-thunderbolt}
 alias 1-full  move screenOriginX;screenOriginY                               screenSizeX;screenSizeY         ${mon-laptop}
 alias 1-top-l move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY/2     ${mon-laptop}
