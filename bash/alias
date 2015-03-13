@@ -15,6 +15,7 @@ alias sb='subl ~/.alias ~/.bashrc ~/.profile ~/.inputrc ~/.screenrc ~/bin/opower
 
 # General bash aliases
 alias ll="ls -la"
+test "`uname -s`" == "Linux" && alias ls="ls --color"
 
 # Ack default ignore target directory
 alias ack="ack --ignore-dirs=target"
