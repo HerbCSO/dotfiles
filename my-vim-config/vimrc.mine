@@ -1,2 +1,21 @@
+" Map leader to space
+"let mapleader = " "
+
 " Tip from http://vim.wikia.com/wiki/Editing_crontab
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+
+" From http://mixandgo.com/blog/vim-config-for-rails-ninjas
+" reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" Go back to previous buffer
+nnoremap <leader><leader> :b#<cr>
+" open .vimrc
+nnoremap <leader>V :e $MYVIMRC<cr>
+
+" auto-save file on losing focus
+autocmd BufLeave,FocusLost * silent! update
+
+" Resize vim with tmux window
+autocmd VimResized * :wincmd =
