@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+./update_submodules.sh
 # ack settings
 ln -fFs ~/dotfiles/ack/ackrc              ~/.ackrc
 # bash settings
