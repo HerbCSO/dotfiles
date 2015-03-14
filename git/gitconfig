@@ -87,3 +87,8 @@
 	recentrepo = /opt/pose/core
 [hub]
 	host = github.va.opower.it
+[pager]
+       diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+       show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+       log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+
