@@ -126,4 +126,4 @@ export crypto_dir=$workspace/client-crypto
 test -f "$HOME/.alias" && . "$HOME/.alias"
 
 # Path for Go, if installed
-[[ -d "$HOME/go/bin" ]] && export PATH=$PATH:$HOME/go/bin
+[[ -d "$HOME/go/bin" ]] && export PATH=$HOME/go/bin:$PATH

@@ -12,13 +12,6 @@ ln -fFs ~/dotfiles/bash/profile           ~/.profile
 ln -fFs ~/dotfiles/bash/bash_profile      ~/.bash_profile
 ln -fFs ~/dotfiles/bash/bashrc            ~/.bashrc
 
-# git settings
-ln -fFs ~/dotfiles/git/gitconfig          ~/.gitconfig
-ln -fFs ~/dotfiles/git/githelpers         ~/.githelpers
-# rather than a global gitignore file, using .cvsignore which is picked up by other
-# utilities automatically - see https://github.com/tpope/vim-pathogen#faq
-ln -fFs ~/dotfiles/git/cvsignore          ~/.cvsignore
-
 # hg/mercurial settings
 if ! hg > /dev/null 2>&1; then
   case "$(uname -s)" in
@@ -36,6 +29,22 @@ fi
 [[ ! -d $HOME/hg-prompt ]] && hg clone http://bitbucket.org/sjl/hg-prompt/ $HOME/hg-prompt
 ln -fFs ~/dotfiles/hg/hgrc                ~/.hgrc
 
+# Now that we have hg installed, we can install Go from source
+./install_go.sh
+
+# git settings - needs Go installed to compile hub
+mkdir -p $HOME/bin
+[[ ! -d $HOME/hub ]] && git clone https://github.com/github/hub.git $HOME/hub || (cd $HOME/hub; git stash; git pull $HOME/hub; git stash pop)
+cd $HOME/hub
+./script/build
+cp hub $HOME/bin
+cd -
+ln -fFs ~/dotfiles/git/gitconfig          ~/.gitconfig
+ln -fFs ~/dotfiles/git/githelpers         ~/.githelpers
+# rather than a global gitignore file, using .cvsignore which is picked up by other
+# utilities automatically - see https://github.com/tpope/vim-pathogen#faq
+ln -fFs ~/dotfiles/git/cvsignore          ~/.cvsignore
+
 # vim settings
 ln -fFs ~/dotfiles/vim-config/vimrc       ~/.vimrc
 ln -fFs ~/dotfiles/my-vim-config/vimrc.mine       ~/dotfiles/vim-config/vimrc.mine
@@ -47,7 +56,7 @@ ln -fFs ~/dotfiles/screen/screenrc        ~/.screenrc
 
 # tmux settings
 function install_tmux_mem_cpu_load() {
-  [[ ! -d $HOME/tmux-mem-cpu-load ]] && git clone https://github.com/thewtex/tmux-mem-cpu-load.git $HOME/tmux-mem-cpu-load || git pull
+  [[ ! -d $HOME/tmux-mem-cpu-load ]] && git clone https://github.com/thewtex/tmux-mem-cpu-load.git $HOME/tmux-mem-cpu-load || (cd $HOME/tmux-mem-cpu-load; git stash; git pull $HOME/tmux-mem-cpu-load; git stash pop)
   cd $HOME/tmux-mem-cpu-load
   cmake .
   make
