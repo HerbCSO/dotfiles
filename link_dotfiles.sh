@@ -20,8 +20,21 @@ ln -fFs ~/dotfiles/git/githelpers         ~/.githelpers
 ln -fFs ~/dotfiles/git/cvsignore          ~/.cvsignore
 
 # hg/mercurial settings
+if ! hg > /dev/null 2>&1; then
+  case "$(uname -s)" in
+    Linux)
+      sudo apt-get install mercurial
+      ;;
+    Darwin)
+      brew install mercurial
+      ;;
+    *)
+      echo "Sorry, I don't know how to install Mercurial/hg on $(uname -a)"
+      exit 1
+  esac
+fi
+[[ ! -d $HOME/hg-prompt ]] && hg clone http://bitbucket.org/sjl/hg-prompt/ $HOME/hg-prompt
 ln -fFs ~/dotfiles/hg/hgrc                ~/.hgrc
-[[ ! -d $HOME/hg-prompt ]] && hg clone http://bitbucket.org/sjl/hg-prompt/
 
 # vim settings
 ln -fFs ~/dotfiles/vim-config/vimrc       ~/.vimrc
@@ -33,7 +46,28 @@ if [ ! -d ~/.vim ]; then ln -fFs ~/dotfiles/vim-config ~/.vim; fi
 ln -fFs ~/dotfiles/screen/screenrc        ~/.screenrc
 
 # tmux settings
+function install_tmux_mem_cpu_load() {
+  [[ ! -d $HOME/tmux-mem-cpu-load ]] && git clone https://github.com/thewtex/tmux-mem-cpu-load.git $HOME/tmux-mem-cpu-load || git pull
+  cd $HOME/tmux-mem-cpu-load
+  cmake .
+  make
+  sudo make install
+  cd -
+}
 ln -fFs ~/dotfiles/tmux/tmux.conf         ~/.tmux.conf
+case "$(uname -s)" in
+  Linux)
+    cmake > /dev/null || sudo apt-get install cmake
+    install_tmux_mem_cpu_load
+    ;;
+  Darwin)
+    cmake > /dev/null || brew install cmake
+    install_tmux_mem_cpu_load
+    ;;
+  *)
+    echo "You need cmake to compile tmux-mem-cpu-load"
+    exit 1
+esac
 
 # zsh settings
 ln -fFs ~/dotfiles/zsh/zshrc              ~/.zshrc
