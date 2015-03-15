@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 ./update_submodules.sh
 
+# get ssh-copy-id utility
+[[ "$(uname -s)" == "Darwin" && ! -f /usr/local/bin/ssh-copy-id ]] && curl -L https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/master/install.sh | sh
+
 # ack settings
 ln -fFs ~/dotfiles/ack/ackrc              ~/.ackrc
 
@@ -19,6 +22,7 @@ ln -fFs ~/dotfiles/git/cvsignore          ~/.cvsignore
 
 # hg/mercurial settings
 ln -fFs ~/dotfiles/hg/hgrc                ~/.hgrc
+[[ ! -d $HOME/hg-prompt ]] && hg clone http://bitbucket.org/sjl/hg-prompt/
 
 # vim settings
 ln -fFs ~/dotfiles/vim-config/vimrc       ~/.vimrc
