@@ -5,6 +5,8 @@ export SVN_EDITOR='mvim -vf'
 export PATH=/usr/local/bin:$HOME/bin:$HOME/svnmerge:/usr/local/mysql/bin:$PATH:/usr/local/sbin:/opt/pose/implementation/bin:/Users/carstendreesbach/pear/bin:~/.npm-global/bin
 test -d /opt/cisco/anyconnect/bin && export PATH=$PATH:/opt/cisco/anyconnect/bin
 export HISTTIMEFORMAT='%F %T '
+# Support for 256 colors in Linux
+[[ "$(uname -s)" == "Linux" ]] && export TERM=xterm-256color
 
 # OPOWER Dev environment settings
 test -f "$HOME/.secure" && . "$HOME/.secure"
