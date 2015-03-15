@@ -21,8 +21,8 @@ test "`uname -s`" == "Linux" && alias ls="ls --color"
 alias ack="ack --ignore-dirs=target"
 
 # Git aliases
+eval "$(hub alias -s)"
 alias gdl="git diff head~1 head | subl"
-alias git=hub
 alias gph="git push heroku master"
 alias git-stats="git ls-tree --name-only -z -r HEAD | xargs -0 -n1 git blame --line-porcelain | grep '^author ' | sort | uniq -c | sort -nr"
 alias gsfr="git svn fetch && git svn rebase"
