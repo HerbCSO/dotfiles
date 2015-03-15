@@ -14,7 +14,6 @@ ln -fFs ~/dotfiles/bash/bashrc            ~/.bashrc
 
 # git settings
 ln -fFs ~/dotfiles/git/gitconfig          ~/.gitconfig
-ln -fFs ~/dotfiles/git/gitignore_global   ~/.gitignore_global
 ln -fFs ~/dotfiles/git/githelpers         ~/.githelpers
 # rather than a global gitignore file, using .cvsignore which is picked up by other
 # utilities automatically - see https://github.com/tpope/vim-pathogen#faq
