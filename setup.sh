@@ -24,6 +24,7 @@ if ! hg > /dev/null 2>&1; then
     *)
       echo "Sorry, I don't know how to install Mercurial/hg on $(uname -a)"
       exit 1
+      ;;
   esac
 fi
 [[ ! -d $HOME/hg-prompt ]] && hg clone http://bitbucket.org/sjl/hg-prompt/ $HOME/hg-prompt
@@ -75,7 +76,7 @@ case "$(uname -s)" in
     ;;
   *)
     echo "You need cmake to compile tmux-mem-cpu-load"
-    exit 1
+    ;;
 esac
 
 # zsh settings
