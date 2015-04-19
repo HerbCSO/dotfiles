@@ -7,7 +7,7 @@ export PATH=/usr/local/bin:$HOME/bin:$HOME/svnmerge:/usr/local/mysql/bin:$PATH:/
 test -d /opt/cisco/anyconnect/bin && export PATH=$PATH:/opt/cisco/anyconnect/bin
 export HISTTIMEFORMAT='%F %T '
 # Support for 256 colors in Linux
-[[ "$(uname -s)" == "Linux" ]] && export TERM=xterm-256color
+[[ "$(uname -s)" == "Linux" && -z "$TMUX" ]] && export TERM=xterm-256color
 
 # OPOWER Dev environment settings
 test -f "$HOME/.secure" && . "$HOME/.secure"
