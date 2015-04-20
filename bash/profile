@@ -127,3 +127,10 @@ test -f "$HOME/.alias" && . "$HOME/.alias"
 
 # Path for Go, if installed
 [[ -d "$HOME/go/bin" ]] && export PATH=$HOME/go/bin:$PATH
+
+# Start TMUX if not running already
+if [[ -z "$TMUX" ]] then
+  tmux attach-session -t "${USER//\./_}" || tmux new-session -s "${USER//\./_}"
+  exit
+fi
+
