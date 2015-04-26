@@ -26,6 +26,7 @@ alias gdl="git diff head~1 head | subl"
 alias gph="git push heroku master"
 alias git-stats="git ls-tree --name-only -z -r HEAD | xargs -0 -n1 git blame --line-porcelain | grep '^author ' | sort | uniq -c | sort -nr"
 alias gsfr="git svn fetch && git svn rebase"
+alias grrou="git remote rename origin upstream"
 
 # Alias to make crontab editing work with my vim config
 alias crontab="export VIM_CRONTAB=true;crontab"

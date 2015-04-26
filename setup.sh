@@ -81,6 +81,7 @@ esac
 
 # zsh settings
 ln -fFs ~/dotfiles/zsh/zshrc              ~/.zshrc
+ln -fFs ~/dotfiles/zsh/zprofile           ~/.zprofile
 
 # oh-my-zsh settings
 ln -fFs ~/dotfiles/zsh/herbcso.zsh-theme  ~/.oh-my-zsh/themes/herbcso.zsh-theme

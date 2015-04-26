@@ -10588,10 +10588,12 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>2849 291 445 103 1440 258 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>1521 519 605 485 1440 258 1920 1057 </string>
+	<string>1521 519 924 485 1440 258 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 11 1438 866 0 0 1440 877 </string>
+	<string>1440 262 1410 1048 1440 258 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1691 -51 570 451 1440 -180 1920 1058 </string>
 	<key>NeverWarnAboutShortLivedSessions_D9838BA8-4D68-4772-94AA-3F6300341E3B</key>
@@ -10790,7 +10792,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>143</integer>
+			<integer>3000</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -11164,7 +11166,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>50</integer>
+			<integer>1000</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -11399,7 +11401,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-04-16T17:07:45Z</date>
+	<date>2015-04-19T20:53:58Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -11456,6 +11458,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.0.0.20141103</string>
+	<string>2.0.0.20150412</string>
 </dict>
 </plist>
