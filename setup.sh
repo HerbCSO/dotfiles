@@ -65,6 +65,7 @@ function install_tmux_mem_cpu_load() {
   cd -
 }
 ln -fFs ~/dotfiles/tmux/tmux.conf         ~/.tmux.conf
+ln -fFs ~/dotfiles/tmux/plugins           ~/.tmux/plugins
 case "$(uname -s)" in
   Linux)
     cmake > /dev/null || sudo apt-get install cmake
