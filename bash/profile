@@ -17,7 +17,7 @@ export workspace_client=/opt/pose/client
 export svnmerge_path=$workspace/svnmerge
 export SSH_TUNNEL_REMOTE_PORT=5542
 export CLIENT_MAIN=$R/main/clients
-export CDPATH=.:~:/opt/pose:/opt/pose/clients:$CDPATH
+export CDPATH=.:~:/opt/pose:/opt/pose/client:$CDPATH
 export CONFIG_DOMAIN=local
 export QUACK_SPECS_LOCATION=$workspace/quack-specs
 export QUACK_RESULTS_LOCATION=/tmp
@@ -129,7 +129,7 @@ test -f "$HOME/.alias" && . "$HOME/.alias"
 [[ -d "$HOME/go/bin" ]] && export PATH=$HOME/go/bin:$PATH
 
 # Start TMUX if not running already
-if [[ -z "$TMUX" && -z "$SSH_CLIENT" ]] then
+if [[ -z "$TMUX" && -z "$SSH_CLIENT" ]]; then
   tmux attach-session -t "${USER//\./_}" || tmux new-session -s "${USER//\./_}"
   exit
 fi
