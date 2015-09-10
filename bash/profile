@@ -129,7 +129,7 @@ test -f "$HOME/.alias" && . "$HOME/.alias"
 [[ -d "$HOME/go/bin" ]] && export PATH=$HOME/go/bin:$PATH
 
 # Start TMUX if not running already
-if [[ -z "$TMUX" && -z "$SSH_CLIENT" ]]; then
+if [[ -n "$TERM" && -z "$TMUX" && -z "$SSH_CLIENT" ]]; then
   tmux attach-session -t "${USER//\./_}" || tmux new-session -s "${USER//\./_}"
   exit
 fi
