@@ -88,9 +88,9 @@
 [hub]
 	host = github.va.opower.it
 [pager]
-       diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
-       show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
-       log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+       diff = $HOME/dotfiles/git/diff-highlight | less
+       show = $HOME/dotfiles/git/diff-highlight | less
+       log = $HOME/dotfiles/git/diff-highlight | less
 
 [filter "lfs"]
 	clean = git lfs clean %f
