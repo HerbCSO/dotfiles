@@ -67,12 +67,14 @@
 
     # branching and testing
     retest = "rebase -i --exec \"bash -lic 'rvm use 1.9.3-p547 && rspec'\" master"
+    bmm = branch --merged master
+    bnmm = branch --no-merged master
 
 [core]
 	excludesfile = /Users/carsten.dreesbach/.cvsignore
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -96,3 +98,7 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[credential]
+    helper = osxkeychain
+[merge "ours"]
+    driver = true
