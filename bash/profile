@@ -131,6 +131,10 @@ test -f "$HOME/.alias" && . "$HOME/.alias"
 [[ -d "$HOME/gowork" ]] || mkdir "$HOME/gowork"
 export GOPATH="$HOME/gowork"
 
+# nvm setup
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # Start TMUX if not running already
 if [[ -n "$TERM" && -z "$TMUX" && -z "$SSH_CLIENT" ]]; then
   tmux attach-session -t "${USER//\./_}" || tmux new-session -s "${USER//\./_}"

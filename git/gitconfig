@@ -70,11 +70,14 @@
     bmm = branch --merged master
     bnmm = branch --no-merged master
 
+    # Opower workflow stuff
+    gpdp = !git pull --rebase upstream master && git push upstream master
+
 [core]
 	excludesfile = /Users/carsten.dreesbach/.cvsignore
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
