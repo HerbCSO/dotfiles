@@ -133,7 +133,7 @@ export GOPATH="$HOME/gowork"
 
 # nvm setup
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+test -x $(/usr/bin/which brew) && source $(brew --prefix nvm)/nvm.sh
 
 # Start TMUX if not running already
 if [[ -n "$TERM" && -z "$TMUX" && -z "$SSH_CLIENT" ]]; then
