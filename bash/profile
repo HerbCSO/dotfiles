@@ -37,10 +37,10 @@ export GITHUB_URL=https://github.va.opower.it/
 alias crontab="VIM_CRONTAB=true crontab"
 
 # Run techops.bash for extra functions
-test -f $workspace/techops.bash/techops.bash && . $workspace/techops.bash/techops.bash
+test -f "$workspace/techops.bash/techops.bash" && . $workspace/techops.bash/techops.bash
 
 # Load GRC
-test -x brew && test -f "`brew --prefix`/etc/grc.bashrc" && . "`brew --prefix`/etc/grc.bashrc"
+test -x "$(/usr/bin/which brew)" && test -f "`brew --prefix`/etc/grc.bashrc" && . "`brew --prefix`/etc/grc.bashrc"
 
 # Set up some other useful PSE functions
 #. ~/bin/opower/useful_pse_functions.sh
@@ -97,13 +97,13 @@ fi
 
 # Linux keychain
 test -x "$(which keychain)" && keychain id_dsa carsten id_rsa id_rsa_opower launchpad-private.ssh &> /dev/null
-test -f $HOME/.keychain/$(hostname)-sh && . $HOME/.keychain/$(hostname)-sh
+test -f "$HOME/.keychain/$(hostname)-sh" && . $HOME/.keychain/$(hostname)-sh
 
 # Add z for directory jumping - see https://github.com/rupa/z
-test -f $HOME/bin/z/z.sh && . $HOME/bin/z/z.sh
+test -f "$HOME/bin/z/z.sh" && . $HOME/bin/z/z.sh
 
 # Run opower.bash for OPOWER dev environment setup
-test -f $workspace/opower.bash/opower.bash && . $workspace/opower.bash/opower.bash
+test -f "$workspace/opower.bash/opower.bash" && . $workspace/opower.bash/opower.bash
 
 test -s "/Users/carstendreesbach/.rvm/scripts/rvm" && . "/Users/carstendreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
@@ -133,7 +133,7 @@ export GOPATH="$HOME/gowork"
 
 # nvm setup
 export NVM_DIR=~/.nvm
-test -x $(/usr/bin/which brew) && source $(brew --prefix nvm)/nvm.sh
+test -x "$(/usr/bin/which brew)" && source $(brew --prefix nvm)/nvm.sh
 
 # Start TMUX if not running already
 if [[ -n "$TERM" && -z "$TMUX" && -z "$SSH_CLIENT" ]]; then
