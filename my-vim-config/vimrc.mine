@@ -19,3 +19,7 @@ autocmd BufLeave,FocusLost * silent! update
 
 " Resize vim with tmux window
 autocmd VimResized * :wincmd =
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
