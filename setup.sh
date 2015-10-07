@@ -39,7 +39,11 @@ ln -fFs ~/dotfiles/hg/hgrc                ~/.hgrc
 ./install_go.sh
 
 # git settings - needs Go installed to compile hub
-mkdir -p $HOME/bin
+if [[ -d "$HOME/Dropbox/SW Configs/bin" ]]; then
+  ln -fFs "$HOME/Dropbox/SW Configs/bin/" ~/bin
+else
+  mkdir -p $HOME/bin
+fi
 [[ ! -d $HOME/hub ]] && git clone https://github.com/github/hub.git $HOME/hub || (cd $HOME/hub; git stash; git pull $HOME/hub; git stash pop)
 cd $HOME/hub
 ./script/build
@@ -70,6 +74,7 @@ function install_tmux_mem_cpu_load() {
   cd -
 }
 ln -fFs ~/dotfiles/tmux/tmux.conf         ~/.tmux.conf
+mkdir -p ~/.tmux
 ln -fFs ~/dotfiles/tmux/plugins           ~/.tmux/plugins
 case "$(uname -s)" in
   Linux)
@@ -87,6 +92,7 @@ esac
 
 # Install Powerline
 pip install --upgrade powerline-status
+brew install psutils # Powerline dependency
 
 # zsh settings
 ln -fFs ~/dotfiles/zsh/zshrc              ~/.zshrc
