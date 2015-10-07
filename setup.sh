@@ -85,6 +85,9 @@ case "$(uname -s)" in
     ;;
 esac
 
+# Install Powerline
+pip install --upgrade powerline-status
+
 # zsh settings
 ln -fFs ~/dotfiles/zsh/zshrc              ~/.zshrc
 ln -fFs ~/dotfiles/zsh/zprofile           ~/.zprofile

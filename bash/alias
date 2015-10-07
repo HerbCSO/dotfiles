@@ -10,6 +10,9 @@ alias mb='mate ~/.alias ~/.bashrc ~/.profile ~/.inputrc ~/.screenrc'
 # Sublime text aliases
 alias sb='subl ~/.alias ~/.bashrc ~/.profile ~/.inputrc ~/.screenrc ~/bin/opower/useful_pse_functions.sh'
 
+# Override vi with vim
+alias vi="vim"
+
 # Used for PostgresGIS for TileMill
 # alias psql=/usr/local/pgsql-9.1/bin/psql
 
