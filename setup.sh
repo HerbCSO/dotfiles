@@ -89,6 +89,7 @@ case "$(uname -s)" in
     echo "You need cmake to compile tmux-mem-cpu-load"
     ;;
 esac
+"$HOME/.tmux/plugins/tpm/bindings/install_plugins"
 
 # Install Powerline
 pip install --upgrade powerline-status
