@@ -4,6 +4,9 @@ alias mrp="mvn release:prepare && mvn release:perform"
 alias mrb="mvn release:rollback"
 alias mcd="mvn clean deploy"
 
+# Opower convenience commands
+alias acu="add_csr_user -e prod -u carsten.dreesbach -f "Carsten Dreesbach" -m carsten.dreesbach@opower.com -p +X7LagXuWcQnhQvNo2JbrfyiuRQlcBmD -t opower_internal_admin -P -c "
+
 # Textmate aliases
 alias mb='mate ~/.alias ~/.bashrc ~/.profile ~/.inputrc ~/.screenrc'
 
@@ -59,3 +62,6 @@ alias ws='which_servers -c'
 
 # SSH aliases
 alias ssh=smux
+
+# AD/LDAP Aliases
+alias adsearch='LDAPTLS_REQCERT=never ldapsearch -x -H ldaps://prod-dc-1001.va.opower.it/ -b DC=opower,DC=local -s sub -D "${USER}@opower.local" -W -E pr=1000/noprompt -o ldif-wrap=no'
