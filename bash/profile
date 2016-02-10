@@ -123,7 +123,11 @@ export crypto_dir=$workspace/client-crypto
 test -f "$HOME/.alias" && . "$HOME/.alias"
 
 # Path for Go, if installed
-[[ -d "$HOME/go/bin" ]] && export PATH=$HOME/go/bin:$PATH
+if [[ -d /usr/local/opt/go/bin ]]; then
+  export PATH=$PATH:/usr/local/opt/go/bin
+else
+  [[ -d "$HOME/go/bin" ]] && export PATH=$HOME/go/bin:$PATH
+fi
 [[ -d "/usr/local/opt/go/libexec/bin" ]] && export PATH=$PATH:/usr/local/opt/go/libexec/bin
 [[ -d "$HOME/gowork" ]] || mkdir "$HOME/gowork"
 export GOPATH="$HOME/gowork"
@@ -132,14 +136,15 @@ export GOPATH="$HOME/gowork"
 export NVM_DIR=~/.nvm
 test -x "$(/usr/bin/which brew)" && source $(brew --prefix nvm)/nvm.sh
 
-# Start TMUX if not running already
-if [[ -n "$TERM" && -z "$TMUX" && -z "$SSH_CLIENT" ]]; then
-  tmux attach-session -t "${USER//\./_}" || tmux new-session -s "${USER//\./_}"
-  exit
-fi
-
 test -s "/Users/carstendreesbach/.rvm/scripts/rvm" && . "/Users/carstendreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # This loads RVM into a shell session. KEEP THIS AS THE LAST LINE!
 test -s "$HOME/.rvm/scripts/rvm" && . "$HOME/.rvm/scripts/rvm"
+
+# Start TMUX if not running already
+if [[ -n "$TERM" && -z "$TMUX" && -z "$SSH_CLIENT" ]]; then
+  tmux attach-session -t "${USER//\./_}" || tmux new-session -s "${USER//\./_}"
+  # exit
+  # Don't exit to be able to use terminal without tmux occasionally
+fi
 
