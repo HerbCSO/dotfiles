@@ -1,6 +1,11 @@
 " Map leader to space
 "let mapleader = " "
 
+" Mouse scroll in vim rather than tmux buffer
+" See also
+" http://superuser.com/questions/610114/tmux-enable-mouse-scrolling-in-vim-instead-of-history-buffer
+set mouse=a
+
 " Tip from http://vim.wikia.com/wiki/Editing_crontab
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
