@@ -11,7 +11,7 @@ alias mon-laptop      1440x900
 alias mon-thunderbolt 1920x1080
 
 # Position Aliases
-alias 1-chat  move screenOriginX;screenOriginY                               240;610                         ${mon-thunderbolt}
+alias 1-chat  move screenOriginX;screenOriginY                               240;800                         ${mon-thunderbolt}
 alias 1-main  move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/3   screenSizeX/3*2;screenSizeY/3*2 ${mon-thunderbolt}
 alias 1-full  move screenOriginX;screenOriginY                               screenSizeX;screenSizeY         ${mon-laptop}
 alias 1-top-l move screenOriginX;screenOriginY                               screenSizeX/2;screenSizeY/2     ${mon-laptop}
@@ -92,14 +92,14 @@ bind m:ctrl;alt;cmd ${2-full}
 
 # Resize Bindings
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-bind right:ctrl;cmd resize +10% +0
-bind left:ctrl;cmd  resize -10% +0
-bind up:ctrl;cmd    resize +0   +10%
-bind down:ctrl;cmd  resize +0   -10%
-bind right:alt;cmd  resize -10% +0 bottom-right
-bind left:alt;cmd   resize +10% +0 bottom-right
-bind up:alt;cmd     resize +0   +10% bottom-right
-bind down:alt;cmd   resize +0   -10% bottom-right
+#bind right:ctrl;cmd resize +10% +0
+#bind left:ctrl;cmd  resize -10% +0
+#bind up:ctrl;cmd    resize +0   +10%
+#bind down:ctrl;cmd  resize +0   -10%
+#bind right:alt;cmd  resize -10% +0 bottom-right
+#bind left:alt;cmd   resize +10% +0 bottom-right
+#bind up:alt;cmd     resize +0   +10% bottom-right
+#bind down:alt;cmd   resize +0   -10% bottom-right
 
 # Push Bindings
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
