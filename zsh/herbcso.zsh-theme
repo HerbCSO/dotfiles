@@ -37,7 +37,7 @@ patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset
 
 # ----------------------------------------------------------------------------
 # svn prompt
-# based on: https://gist.github.com/1156969 
+# based on: https://gist.github.com/1156969
 # with help from: http://andrewray.me/bash-prompt-builder/index.html
 # ----------------------------------------------------------------------------
 function svn_prompt_info {
@@ -53,7 +53,7 @@ function svn_prompt_info {
         svn_branch=`svn info | grep '^URL:' | egrep -o '((tags|branches)/[^/]+|trunk).*' | sed -E -e 's/^(branches|tags)\///g'`
         svn_repository=`svn info | grep '^Repository Root:' | egrep -o '(http|https|file|svn|svn+ssh)/[^/]+' | egrep -o '[^/]+$'`
         svn_version=`svnversion -n`
-        
+
         # this is the slowest test of the bunch
         change_count=`svn status | grep "?\|\!\|M\|A" | wc -l`
         if [ "$change_count" != "       0" ]; then
@@ -61,10 +61,10 @@ function svn_prompt_info {
         else
             svn_change=""
         fi
-        
+
         # show the results
         echo "%{$fg[blue]%}$svn_repository/$svn_branch @ $svn_version%{$reset_color%}%{$fg[yellow]%}$svn_change%{$reset_color%}"
-        
+
     fi
 }
 
@@ -90,7 +90,7 @@ $(prompt_char)$smiley '
 #----------------------------------------------------------------------------
 function rvm_prompt() {
     if [[ -z "$RVM_PROMPT" ]]; then
-        export RVM_PROMPT=$(~/.rvm/bin/rvm-prompt i v p g s)
+        export RVM_PROMPT=$(ruby --version | cut -d" " -f2)
     fi
     echo $RVM_PROMPT
 }
