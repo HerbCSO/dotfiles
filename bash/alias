@@ -21,7 +21,7 @@ alias vi="vim"
 
 # General bash aliases
 alias ll="ls -la"
-test "`uname -s`" == "Linux" && alias ls="ls --color"
+test "`uname -s`" = "Linux" && alias ls="ls --color"
 
 # Ack default ignore target directory
 alias ack="ack --ignore-dirs=target"
