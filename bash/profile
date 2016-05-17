@@ -1,4 +1,5 @@
-echo "RUNNING .profile"
+DEBUG=true
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Running .profile")
 # General settings
 export CLICOLOR=auto
 export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:';
@@ -11,6 +12,7 @@ export HISTTIMEFORMAT='%F %T '
 [[ "$(uname -s)" == "Linux" && -z "$TMUX" ]] && export TERM=xterm-256color
 
 # OPOWER Dev environment settings
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading .secure...")
 test -f "$HOME/.secure" && . "$HOME/.secure"
 export R_HOME=/Library/Frameworks/R.framework/Versions/2.12/Resources/
 test -d "/opt/pose" && export workspace=/opt/pose
@@ -40,10 +42,12 @@ export GITHUB_URL=https://github.va.opower.it/
 alias crontab="VIM_CRONTAB=true crontab"
 
 # Run techops.bash for extra functions
-test -f "$workspace/techops.bash/techops.bash" && . $workspace/techops.bash/techops.bash
+# [[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading techops.bash...")
+# test -f "$workspace/techops.bash/techops.bash" && . $workspace/techops.bash/techops.bash
 
 # Load GRC
-test -x "$(/usr/bin/which brew)" && test -f "`brew --prefix`/etc/grc.bashrc" && . "`brew --prefix`/etc/grc.bashrc"
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading grc...")
+test -x "$(/usr/bin/which brew)" && test -f "$(brew --prefix)/etc/grc.bashrc" && . "$(brew --prefix)/etc/grc.bashrc"
 
 # Set up some other useful PSE functions
 #. ~/bin/opower/useful_pse_functions.sh
@@ -90,7 +94,7 @@ export PATH=/Library/Frameworks/GDAL.framework/Programs:$PATH
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Adding JAVA_HOME for OSX Mountain Lion (10.8)
-test -x /usr/libexec/java_home && export JAVA_HOME=`/usr/libexec/java_home`
+test -x /usr/libexec/java_home && export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Hive setup (from http://noobergeek.blogspot.com/2012/09/installing-hive-on-osx-lion-107-with.html)
 if [[ -d /usr/local/Cellar ]]; then
@@ -99,14 +103,17 @@ if [[ -d /usr/local/Cellar ]]; then
 fi
 
 # Linux keychain
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading keychain...")
 test -x "$(which keychain)" && keychain id_dsa carsten id_rsa id_rsa_opower launchpad-private.ssh &> /dev/null
-test -f "$HOME/.keychain/$(hostname)-sh" && . $HOME/.keychain/$(hostname)-sh
+test -f "$HOME/.keychain/$(hostname)-sh" && . "$HOME/.keychain/$(hostname)-sh"
 
 # Add z for directory jumping - see https://github.com/rupa/z
-test -f "$HOME/bin/z/z.sh" && . $HOME/bin/z/z.sh
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading z.sh...")
+test -f "$HOME/bin/z/z.sh" && . "$HOME/bin/z/z.sh"
 
 # Run opower.bash for OPOWER dev environment setup
-test -f "$workspace/opower.bash/opower.bash" && . $workspace/opower.bash/opower.bash
+# (>&2 echo "$(gdate +%s.%N) Loading opower.bash...")
+# test -f "$workspace/opower.bash/opower.bash" && . $workspace/opower.bash/opower.bash
 
 # Test for PGSQL
 export PGDATA=/usr/local/pgsql/data/
@@ -121,6 +128,7 @@ export puppet_dir=$workspace/puppet
 export crypto_dir=$workspace/client-crypto
 
 # Load aliases last to make sure mine override any others previously defined
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading .alias...")
 test -f "$HOME/.alias" && . "$HOME/.alias"
 
 # Path for Go, if installed
@@ -134,18 +142,14 @@ fi
 export GOPATH="$HOME/gowork"
 
 # nvm setup
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading nvm...")
 export NVM_DIR=~/.nvm
-test -x "$(/usr/bin/which brew)" && source $(brew --prefix nvm)/nvm.sh
-
-test -s "/Users/carsten.dreesbach/.rvm/scripts/rvm" && . "/Users/carsten.dreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# This loads RVM into a shell session. KEEP THIS AS THE LAST LINE!
-test -s "$HOME/.rvm/scripts/rvm" && . "$HOME/.rvm/scripts/rvm"
+test -x "$(/usr/bin/which brew)" && source "$(brew --prefix nvm)/nvm.sh"
 
 # Start TMUX if not running already
-#if [[ -n "$TERM" && -z "$TMUX" && -z "$SSH_CLIENT" ]]; then
-#  tmux attach-session -t "${USER//\./_}" || tmux new-session -s "${USER//\./_}"
-#  # exit
-#  # Don't exit to be able to use terminal without tmux occasionally
-#fi
-
+if [[ -n "$TERM" && -z "$TMUX" && -z "$SSH_CLIENT" ]]; then
+  [[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Starting tmux...")
+  tmux attach-session -t "${USER//\./_}" || tmux new-session -s "${USER//\./_}"
+  # exit
+  # Don't exit to be able to use terminal without tmux occasionally
+fi

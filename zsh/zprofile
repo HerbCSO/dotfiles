@@ -1,1 +1,7 @@
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+DEBUG=true
+[[ "$DEBUG" = "true" ]] && echo "$(gdate +%s.%N) Running .zprofile..."
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile"
+fi
+source ~/.profile

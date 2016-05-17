@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Install oh-my-zsh if needed
-test -d "$HOME/.oh-my-zsh" || sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#test -d "$HOME/.oh-my-zsh" || sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # Install rvm if needed
-test -x "$(/usr/bin/which rvm)" || (gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 && \curl -sSL https://get.rvm.io | bash -s stable --ruby)
+#test -x "$(/usr/bin/which rvm)" || (gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 && \curl -sSL https://get.rvm.io | bash -s stable --ruby)
 
 ./update_submodules.sh
 
@@ -100,7 +100,7 @@ ln -fFs ~/dotfiles/zsh/zshrc              ~/.zshrc
 ln -fFs ~/dotfiles/zsh/zprofile           ~/.zprofile
 
 # oh-my-zsh settings
-ln -fFs ~/dotfiles/zsh/herbcso.zsh-theme  ~/.oh-my-zsh/themes/herbcso.zsh-theme
+#ln -fFs ~/dotfiles/zsh/herbcso.zsh-theme  ~/.oh-my-zsh/themes/herbcso.zsh-theme
 
 # inputrc
 ln -fFs ~/dotfiles/inputrc                ~/.inputrc

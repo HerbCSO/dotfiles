@@ -1,3 +1,5 @@
+DEBUG=true
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Running $0")
 # set the trace prompt to include seconds, nanoseconds, script name and line number
 #PS4='+$(date "+%s:%N") %N:%i> '
 # save file stderr to file descriptor 3 and redirect stderr (including trace
@@ -6,20 +8,56 @@
 # set options to turn on tracing and expansion of commands contained in the prompt
 #setopt xtrace prompt_subst
 
+alias shopt=':'
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  [[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Running prezto init...")
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Allow > and >> to clobber files (avoids error message from opower.bash)
+setopt CLOBBER
+
+# Directories
+zstyle ':completion:*:default' list-colors ''
+expand-or-complete-with-dots() {      # This bunch of code displays red dots when autocompleting
+  echo -n "\e[31m......\e[0m"         # a command with the tab key, "Oh-my-zsh"-style.
+  zle expand-or-complete
+  zle redisplay
+}
+zle -N expand-or-complete-with-dots
+bindkey "^I" expand-or-complete-with-dots
+
+# prompt from http://jeromedalbert.com/migrate-from-oh-my-zsh-to-prezto/
+zstyle ':prezto:module:prompt' theme 'jerome'
+
+#[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading powerline...")
+#[[ -f /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]] && . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading auto-completions...")
+autoload compinit
+compinit
+# enable bash completions for compatibility with Opower scripts
+autoload bashcompinit
+bashcompinit
+
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading chruby...")
+test -s '/usr/local/share/chruby/chruby.sh' && source '/usr/local/share/chruby/chruby.sh'
+test -s '/usr/local/share/chruby/auto.sh' && source '/usr/local/share/chruby/auto.sh'
+# Set default ruby version
+chruby ruby-1.9.3-p551
+# [[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading rvm...")
+# test -s "/Users/carsten.dreesbach/.rvm/scripts/rvm" && . "/Users/carsten.dreesbach/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # load settings common to all shells
 #source ~/.profile
 [[ -f ~/bin/dc6_settings.sh ]] && source ~/bin/dc6_settings.sh
 # Run opower.bash for OPOWER dev environment setup
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading opower.bash...")
 test -f "$workspace/opower.bash/opower.bash" && . $workspace/opower.bash/opower.bash
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading techops.bash...")
 test -f "$workspace/techops.bash/techops.bash" && . $workspace/techops.bash/techops.bash
-
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-# enable bash completions for compatibility with Opower scripts
-alias shopt=':'
-autoload bashcompinit
-bashcompinit
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -28,7 +66,7 @@ bashcompinit
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="frosted"
 #ZSH_THEME="zanshin"
-ZSH_THEME="herbcso"
+export ZSH_THEME="herbcso"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -47,23 +85,22 @@ ZSH_THEME="herbcso"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+#export COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew bundler rails git ruby gem jira mvn node npm osx python rvm sublime svn tmux)
+#plugins=(brew bundler rails git ruby gem jira mvn node npm osx python sublime svn tmux)
 
-source $ZSH/oh-my-zsh.sh
-
-autoload compinit
-compinit
-autoload bashcompinit
-bashcompinit
+#[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading oh-my-zsh...")
+# Path to your oh-my-zsh configuration.
+#export ZSH=$HOME/.oh-my-zsh
+#source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/Library/Frameworks/GDAL.framework/Programs:/Library/Frameworks/PROJ.framework/Programs:/usr/local/pgsql-9.1/bin:/usr/local/bin:/Users/carsten.dreesbach/bin:/Users/carsten.dreesbach/svnmerge:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/sbin:/opt/pose/implementation/bin:/opt/pose/opsqa/bin
 
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Setting ssh-agent plugin options...")
 zstyle :omz:plugins:ssh-agent id_rsa launchpad-private.ssh
 
 # Set less options
@@ -78,7 +115,8 @@ then
   fi
 fi
 
-PATH=$PATH:$HOME/.rvm/bin:/usr/local/share/npm/bin # Add RVM and yeoman to PATH for scripting
+# PATH=$PATH:$HOME/.rvm/bin:/usr/local/share/npm/bin # Add RVM and yeoman to PATH for scripting
+PATH=$PATH:/usr/local/share/npm/bin # Add yeoman to PATH for scripting
 
 # Unified history files across sessions - see http://superuser.com/questions/37576/can-history-files-be-unified-in-bash
 # 2011-06-14 decided not to use this after all for now, too annoying to get mixed command history across sessions
@@ -89,7 +127,7 @@ export HISTSIZE=1000000 HISTFILESIZE=1000000
 # New history config for supporting huffshell gem https://github.com/paulmars/huffshell
 shopt -s histappend
 setopt EXTENDED_HISTORY
-unalias history # set to fc -l 1 for some reason...?
+# unalias history # set to fc -l 1 for some reason...?
 # setopt hist_expire_dups_first
 # setopt hist_ignore_dups # ignore duplication command history list
 #shopt hist_ignore_space
@@ -114,31 +152,32 @@ setopt EXTENDED_GLOB
 setopt NO_NOMATCH
 
 # customizations
-function gd() { git diff $* | view -; }
-function gdc() { gd --cached $*; }
-alias pygrep="grep --include='*.py' $*"
-alias rbgrep="grep --include='*.rb' $*"
-alias t="script/test $*"
-alias f="script/features $*"
-alias g="bundle exec guard $*"
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Setting functions and aliases...")
+function gd() { git diff "$@" | view -; }
+function gdc() { gd --cached "$@"; }
+function pygrep() { grep --include='*.py' "$@"; }
+function rbgrep() { grep --include='*.rb' "$@"; }
+function t() { script/test "$@"; }
+function f() { script/features "$@"; }
+function g() { bundle exec guard "$@"; }
 alias sr="screen -r"
 alias gx="gitx"
 alias gxa="gitx --all"
-function mcd() { mkdir -p $1 && cd $1 }
-function cdf() { cd *$1*/ } # stolen from @topfunky
+function mcd() { mkdir -p "$1" && cd "$1" || exit "Couldn't cd to $1"; }
+function cdf() { cd "*$1*/" || exit "Couldn't cd to $1"; } # stolen from @topfunky
 
 # now reset BLOCKSIZE since '1 doesn't work on Mac
-BLOCKSIZE=
+unset BLOCKSIZE
 
 # function wrapper for brew to ensure we're using system ruby for vim compilation
 function storeOutput {
   var=$(cat);
 }
 function brew() {
-  rvm current | storeOutput
-  rvm use system > /dev/null
-  /usr/local/bin/brew $*
-  rvm use $var > /dev/null
+  chruby | grep '\*' | cut -c4- | storeOutput
+  chruby system > /dev/null
+  /usr/local/bin/brew "$@"
+  chruby "$var" > /dev/null
 }
 
 # turn off tracing
@@ -149,17 +188,12 @@ function brew() {
 # Help access
 unalias run-help 2> /dev/null
 autoload run-help
-HELPDIR=/usr/local/share/zsh/help
-
-. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+export HELPDIR=/usr/local/share/zsh/help
 
 # Load aliases last to make sure mine override any others previously defined
+[[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading aliases...")
 test -f "$HOME/.alias" && . "$HOME/.alias"
 
-# Start TMUX if not running already
-if [[ -n "$TERM" && -z "$TMUX" && -z "$SSH_CLIENT" ]]; then
-  tmux attach-session -t "${USER//\./_}" || tmux new-session -s "${USER//\./_}"
-  # exit
-  # Don't exit to be able to use terminal without tmux occasionally
-fi
-
+# This loads RVM into a shell session. KEEP THIS AS THE LAST LINE!
+# [[ "$DEBUG" = "true" ]] && (>&2 echo "$(gdate +%s.%N) Loading rvm into shell...")
+# test -s "$HOME/.rvm/scripts/rvm" && . "$HOME/.rvm/scripts/rvm"
